@@ -10,13 +10,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const skillBars = document.querySelectorAll('.skill-level');
     const sections = document.querySelectorAll('section');
     const contactForm = document.getElementById('contactForm');
-    const glitchText = document.querySelector('.glitch-text');
+    const revealText = document.querySelector('.reveal-text');
     
-    // Set data-text attribute cho hiệu ứng glitch
-    if (glitchText) {
-        glitchText.setAttribute('data-text', glitchText.textContent);
-    }
-
     // Thiết lập theme mode từ localStorage hoặc theo trình duyệt
     function setInitialTheme() {
         const savedTheme = localStorage.getItem('theme');
@@ -116,6 +111,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 item.classList.add('active');
             }
         });
+        
+        // Hiển thị các phần tử khi scroll
+        revealOnScroll();
     });
     
     // Scroll xuống khi click vào scroll indicator
@@ -137,11 +135,12 @@ document.addEventListener('DOMContentLoaded', function() {
             const formData = {
                 name: document.getElementById('name').value,
                 email: document.getElementById('email').value,
-                message: document.getElementById('message').value
+                message: document.getElementById('message').value,
+                project: document.getElementById('project').value
             };
             
             // Hiển thị thông báo xác nhận
-            alert(`Cảm ơn ${formData.name}! Tin nhắn của bạn đã được gửi thành công.`);
+            alert(`Cảm ơn ${formData.name}! Tin nhắn của bạn đã được gửi thành công. Chúng tôi sẽ liên hệ lại trong thời gian sớm nhất.`);
             
             // Reset form
             contactForm.reset();
@@ -155,53 +154,197 @@ document.addEventListener('DOMContentLoaded', function() {
     function isInViewport(element) {
         const rect = element.getBoundingClientRect();
         return (
-            rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
             rect.bottom >= 0
         );
     }
     
-    // Thêm animation cho các phần tử khi scroll
-    function animateOnScroll() {
-        const elements = document.querySelectorAll('.animate-on-scroll');
+    // Thêm các phần tử cần hiệu ứng khi scroll
+    function setupRevealElements() {
+        const elementsToReveal = document.querySelectorAll('.service-card, .project-item, .testimonial-item, .info-item');
         
-        elements.forEach(element => {
-            if (isInViewport(element) && !element.classList.contains('animated')) {
-                element.classList.add('animated');
+        elementsToReveal.forEach((element, index) => {
+            element.classList.add('reveal-element');
+            element.style.transitionDelay = `${index * 0.1}s`;
+        });
+    }
+    
+    // Hiển thị các phần tử với hiệu ứng khi scroll
+    function revealOnScroll() {
+        const elementsToReveal = document.querySelectorAll('.reveal-element');
+        
+        elementsToReveal.forEach(element => {
+            if (isInViewport(element) && !element.classList.contains('revealed')) {
+                element.classList.add('revealed');
             }
         });
     }
     
-    // Gọi animateOnScroll khi scroll
-    window.addEventListener('scroll', animateOnScroll);
-    
-    // Gọi một lần khi trang tải
-    animateOnScroll();
-    
-    // Thêm hiệu ứng hover cho project cards
-    const projectCards = document.querySelectorAll('.project-card');
-    
-    projectCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.querySelector('.project-image img').style.transform = 'scale(1.1)';
+    // Thiết lập testimonial slider
+    function setupTestimonialSlider() {
+        const testimonialSlider = document.querySelector('.testimonials-slider');
+        const testimonialItems = document.querySelectorAll('.testimonial-item');
+        const dotsContainer = document.querySelector('.testimonial-dots');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        
+        if (!testimonialSlider || testimonialItems.length === 0) return;
+        
+        let currentIndex = 0;
+        
+        // Tạo các dots
+        testimonialItems.forEach((_, index) => {
+            const dot = document.createElement('span');
+            dot.classList.add('dot');
+            if (index === 0) dot.classList.add('active');
+            
+            dot.addEventListener('click', () => {
+                goToSlide(index);
+            });
+            
+            dotsContainer.appendChild(dot);
         });
         
-        card.addEventListener('mouseleave', function() {
-            this.querySelector('.project-image img').style.transform = 'scale(1)';
+        // Thiết lập nút prev
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + testimonialItems.length) % testimonialItems.length;
+            goToSlide(currentIndex);
         });
-    });
+        
+        // Thiết lập nút next
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % testimonialItems.length;
+            goToSlide(currentIndex);
+        });
+        
+        // Tự động chuyển slide
+        let slideInterval = setInterval(() => {
+            currentIndex = (currentIndex + 1) % testimonialItems.length;
+            goToSlide(currentIndex);
+        }, 5000);
+        
+        // Tạm dừng khi hover
+        testimonialSlider.addEventListener('mouseenter', () => {
+            clearInterval(slideInterval);
+        });
+        
+        testimonialSlider.addEventListener('mouseleave', () => {
+            slideInterval = setInterval(() => {
+                currentIndex = (currentIndex + 1) % testimonialItems.length;
+                goToSlide(currentIndex);
+            }, 5000);
+        });
+        
+        // Hàm chuyển slide
+        function goToSlide(index) {
+            testimonialItems.forEach((item, i) => {
+                item.style.display = i === index ? 'block' : 'none';
+            });
+            
+            // Cập nhật dot active
+            const dots = document.querySelectorAll('.dot');
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+        
+        // Hiển thị slide đầu tiên
+        goToSlide(0);
+    }
     
-    // Smooth scroll cho tất cả liên kết nội bộ
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
+    // Thêm hiệu ứng mượt mà cho scrolling
+    function setupSmoothScrolling() {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const targetPosition = targetElement.offsetTop - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    }
+    
+    // Thêm hiệu ứng parallax cho hero section
+    function setupParallaxEffect() {
+        const heroSection = document.querySelector('.hero');
+        const heroContent = document.querySelector('.hero-content');
+        
+        window.addEventListener('scroll', () => {
+            const scrollPos = window.scrollY;
             
-            const target = document.querySelector(this.getAttribute('href'));
-            
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
+            if (scrollPos < window.innerHeight) {
+                heroContent.style.transform = `translateY(${scrollPos * 0.2}px)`;
+                heroContent.style.opacity = 1 - (scrollPos * 1.5) / window.innerHeight;
             }
         });
-    });
+    }
+    
+    // Thêm hiệu ứng hover cho các thẻ service
+    function setupServiceCardEffects() {
+        const serviceCards = document.querySelectorAll('.service-card');
+        
+        serviceCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                const icon = this.querySelector('.service-icon');
+                icon.style.transform = 'scale(1.1) rotate(5deg)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                const icon = this.querySelector('.service-icon');
+                icon.style.transform = 'scale(1) rotate(0)';
+            });
+        });
+    }
+    
+    // Thêm hiệu ứng typing text cho hero
+    function setupTypingEffect() {
+        const element = document.querySelector('.hero h2');
+        if (!element) return;
+        
+        const text = element.textContent;
+        element.textContent = '';
+        element.style.borderRight = '2px solid var(--color-primary)';
+        
+        let i = 0;
+        
+        function type() {
+            if (i < text.length) {
+                element.textContent += text.charAt(i);
+                i++;
+                setTimeout(type, 100);
+            } else {
+                element.style.borderRight = 'none';
+            }
+        }
+        
+        setTimeout(type, 1500); // Bắt đầu sau hiệu ứng reveal
+    }
+    
+    // Khởi tạo tất cả các chức năng khi trang được tải
+    function initializeAll() {
+        setupRevealElements();
+        setupTestimonialSlider();
+        setupSmoothScrolling();
+        setupParallaxEffect();
+        setupServiceCardEffects();
+        setupTypingEffect();
+        
+        // Kích hoạt hiệu ứng reveal cho lần load đầu tiên
+        setTimeout(revealOnScroll, 300);
+    }
+    
+    // Gọi function khởi tạo
+    initializeAll();
 });

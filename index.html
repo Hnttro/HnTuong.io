@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tên Của Bạn | Portfolio</title>
-    <meta name="description" content="Trang web cá nhân và portfolio của [Tên của bạn]">
+    <title>Tên Của Bạn | Editor Portfolio</title>
+    <meta name="description" content="Trang web cá nhân và portfolio của [Tên của bạn] - Editor chuyên nghiệp">
     
     <!-- Liên kết CSS -->
     <link rel="stylesheet" href="css/reset.css">
@@ -13,44 +13,53 @@
     <!-- Font từ Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Font Awesome để làm icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Header / Navigation -->
-    <header>
-        <div class="container">
-            <div class="logo">
-                <a href="#home">Tên Của Bạn</a>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#about">Giới thiệu</a></li>
-                    <li><a href="#projects">Dự án</a></li>
-                    <li><a href="#contact">Liên hệ</a></li>
-                </ul>
-            </nav>
-            <div class="theme-switch">
-                <i class="fas fa-moon"></i>
-            </div>
-            <div class="menu-toggle">
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
+    <!-- Hero Section với video background và header -->
     <section id="home" class="hero">
+        <!-- Video Background -->
+        <div class="hero-video-background">
+            <video autoplay muted loop playsinline>
+                <source src="assets/Video/video.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
+        </div>
+        
+        <!-- Header / Navigation -->
+        <header>
+            <div class="container">
+                <div class="logo">
+                    <a href="#home">Tên Của Bạn</a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#about">Giới thiệu</a></li>
+                        <li><a href="#projects">Tác phẩm</a></li>
+                        <li><a href="#services">Dịch vụ</a></li>
+                        <li><a href="#contact">Liên hệ</a></li>
+                    </ul>
+                </nav>
+                <div class="theme-switch">
+                    <i class="fas fa-moon"></i>
+                </div>
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </header>
+        
         <div class="container">
             <div class="hero-content">
-                <h1 class="glitch-text">Xin chào, tôi là <span>Tên Của Bạn</span></h1>
-                <h2>Developer & Designer</h2>
-                <p>Tôi tạo ra những trải nghiệm kỹ thuật số sáng tạo và hấp dẫn.</p>
+                <h1 class="reveal-text">Xin chào, tôi là <span>Tên Của Bạn</span></h1>
+                <h2>Video Editor & Motion Designer</h2>
+                <p>Tôi tạo ra những câu chuyện thị giác đầy cảm xúc và sáng tạo.</p>
                 <div class="hero-cta">
-                    <a href="#projects" class="btn primary">Xem dự án</a>
+                    <a href="#projects" class="btn primary">Xem tác phẩm</a>
                     <a href="#contact" class="btn secondary">Liên hệ</a>
                 </div>
             </div>
@@ -65,110 +74,250 @@
     <section id="about" class="about">
         <div class="container">
             <div class="section-header">
-                <h2>Về tôi</h2>
-                <p>Một vài thông tin về bản thân và kinh nghiệm của tôi</p>
+                <span class="section-subtitle">Về tôi</span>
+                <h2>Câu chuyện của tôi</h2>
+                <p>Hành trình sáng tạo và đam mê của tôi</p>
             </div>
             <div class="about-content">
                 <div class="about-text">
-                    <p>Tôi là một [nghề nghiệp] đam mê tạo ra những [loại sản phẩm/dịch vụ]. Với [X] năm kinh nghiệm trong ngành, tôi đã làm việc với nhiều khách hàng và dự án đa dạng.</p>
-                    <p>Tôi tập trung vào [lĩnh vực chuyên môn] và luôn tìm kiếm cơ hội để phát triển kỹ năng và kiến thức của mình.</p>
-                    <h3>Kỹ năng</h3>
+                    <p>Tôi là một editor chuyên nghiệp với niềm đam mê kể chuyện bằng hình ảnh và âm thanh. Với [X] năm kinh nghiệm trong lĩnh vực biên tập video, tôi đã cộng tác với nhiều thương hiệu, nghệ sĩ và dự án sáng tạo.</p>
+                    <p>Tôi chuyên về biên tập video, làm phim, motion graphics và color grading. Mỗi dự án đều là cơ hội để tôi kết hợp kỹ thuật và sáng tạo, mang lại những sản phẩm độc đáo và đầy cảm xúc.</p>
+                    <h3>Kỹ năng chuyên môn</h3>
                     <ul class="skills-list">
                         <li>
-                            <span>HTML & CSS</span>
+                            <span>Video Editing</span>
                             <div class="skill-bar"><div class="skill-level" style="width: 95%;"></div></div>
                         </li>
                         <li>
-                            <span>JavaScript</span>
+                            <span>Motion Graphics</span>
                             <div class="skill-bar"><div class="skill-level" style="width: 85%;"></div></div>
                         </li>
                         <li>
-                            <span>React</span>
-                            <div class="skill-bar"><div class="skill-level" style="width: 80%;"></div></div>
-                        </li>
-                        <li>
-                            <span>UI/UX Design</span>
+                            <span>Color Grading</span>
                             <div class="skill-bar"><div class="skill-level" style="width: 90%;"></div></div>
                         </li>
+                        <li>
+                            <span>Sound Design</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 80%;"></div></div>
+                        </li>
                     </ul>
+                    
+                    <h3>Phần mềm thành thạo</h3>
+                    <div class="software-icons">
+                        <div class="software-icon">
+                            <i class="fab fa-adobe"></i>
+                            <span>Premiere Pro</span>
+                        </div>
+                        <div class="software-icon">
+                            <i class="fab fa-adobe"></i>
+                            <span>After Effects</span>
+                        </div>
+                        <div class="software-icon">
+                            <i class="fab fa-adobe"></i>
+                            <span>Photoshop</span>
+                        </div>
+                        <div class="software-icon">
+                            <i class="fas fa-music"></i>
+                            <span>Audition</span>
+                        </div>
+                        <div class="software-icon">
+                            <i class="fas fa-palette"></i>
+                            <span>DaVinci Resolve</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="about-image">
                     <div class="image-container">
                         <!-- Thay thế bằng hình ảnh của bạn -->
-                        <img src="assets/images/profile.jpg" alt="Hình ảnh của Tên Của Bạn">
+                        <img src="assets/Image/daidien.jpg" alt="Hình ảnh của Tên Của Bạn">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
+    <!-- Services Section -->
+    <section id="services" class="services">
         <div class="container">
             <div class="section-header">
-                <h2>Dự án</h2>
-                <p>Một số dự án nổi bật mà tôi đã thực hiện</p>
+                <span class="section-subtitle">Dịch vụ</span>
+                <h2>Những gì tôi cung cấp</h2>
+                <p>Các dịch vụ chuyên nghiệp cho dự án của bạn</p>
             </div>
-            <div class="projects-grid">
-                <!-- Project 1 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="assets/images/project1.jpg" alt="Dự án 1">
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-film"></i>
                     </div>
-                    <div class="project-content">
-                        <h3>Tên Dự Án 1</h3>
-                        <p>Mô tả ngắn về dự án và vai trò của bạn trong đó.</p>
-                        <div class="project-tags">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JavaScript</span>
+                    <h3>Video Editing</h3>
+                    <p>Biên tập video chuyên nghiệp cho các dự án cá nhân, thương mại và quảng cáo với kỹ thuật cắt ghép mượt mà và nhịp điệu hấp dẫn.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3>Motion Graphics</h3>
+                    <p>Tạo ra những hiệu ứng động và đồ họa chuyển động sáng tạo, nâng tầm nội dung video của bạn với các yếu tố thị giác hấp dẫn.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Color Grading</h3>
+                    <p>Hiệu chỉnh màu sắc chuyên nghiệp, tạo bầu không khí và tông màu đặc trưng cho các dự án phim và video của bạn.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3>Sound Design</h3>
+                    <p>Thiết kế âm thanh và mix nhạc để tạo trải nghiệm thính giác hoàn hảo, bổ sung cho hình ảnh trong các dự án của bạn.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section - Đã chỉnh sửa để hiển thị giống ảnh mẫu -->
+<!-- Projects Section - Cập nhật để có 2 hàng, mỗi hàng 3 dự án -->
+<section id="projects" class="projects">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-subtitle">Tác phẩm</span>
+            <h2>Dự án nổi bật</h2>
+            <p>Những sản phẩm sáng tạo tiêu biểu</p>
+        </div>
+        <div class="projects-grid">
+            <!-- Hàng 1 -->
+            <!-- Project 1 -->
+            <a href="https://www.youtube.com/watch?v=VIDEO_ID_1" target="_blank" class="project-item">
+                <div class="project-image">
+                    <img src="assets/images/projects/project1.jpg" alt="Travel Recap">
+                    <div class="project-overlay">
+                        <h3>Travel Recap</h3>
+                        <span class="project-cta">Watch Here</span>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Project 2 -->
+            <a href="https://www.youtube.com/watch?v=VIDEO_ID_2" target="_blank" class="project-item">
+                <div class="project-image">
+                    <img src="assets/images/projects/project2.jpg" alt="Wadi Rum Desert">
+                    <div class="project-overlay">
+                        <div class="project-date">22.07.23 • 01:27:35</div>
+                        <h3>Wadi Rum Desert</h3>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Project 3 -->
+            <a href="https://www.youtube.com/watch?v=VIDEO_ID_3" target="_blank" class="project-item">
+                <div class="project-image">
+                    <img src="assets/images/projects/project3.jpg" alt="Forest Adventure">
+                    <div class="project-overlay">
+                        <h3>Forest Adventure</h3>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Hàng 2 -->
+            <!-- Project 4 -->
+            <a href="https://www.youtube.com/watch?v=VIDEO_ID_4" target="_blank" class="project-item">
+                <div class="project-image">
+                    <img src="assets/images/projects/project4.jpg" alt="Nepal Documentary">
+                    <div class="project-overlay">
+                        <h3>Nepal Documentary</h3>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Project 5 -->
+            <a href="https://www.youtube.com/watch?v=VIDEO_ID_5" target="_blank" class="project-item">
+                <div class="project-image">
+                    <img src="assets/images/projects/project5.jpg" alt="Mountain Expedition">
+                    <div class="project-overlay">
+                        <h3>Mountain Expedition</h3>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Project 6 -->
+            <a href="https://www.youtube.com/watch?v=VIDEO_ID_6" target="_blank" class="project-item">
+                <div class="project-image">
+                    <img src="assets/images/projects/project6.jpg" alt="Desert Journey">
+                    <div class="project-overlay">
+                        <h3>Desert Journey</h3>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="projects-cta">
+            <a href="https://www.youtube.com/channel/YOUR_CHANNEL_ID" target="_blank" class="btn secondary">Xem thêm tác phẩm</a>
+        </div>
+    </div>
+</section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Đánh giá</span>
+                <h2>Nhận xét từ khách hàng</h2>
+                <p>Những gì họ nói về công việc của tôi</p>
+            </div>
+            <div class="testimonials-slider">
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <p>"Tôi vô cùng hài lòng với chất lượng công việc và sự sáng tạo. Video quảng cáo đã vượt xa mong đợi của chúng tôi và nhận được phản hồi tích cực từ khán giả."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="assets/images/client1.jpg" alt="Khách hàng 1">
                         </div>
-                        <div class="project-links">
-                            <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i></a>
-                            <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                        <div class="author-info">
+                            <h4>Nguyễn Văn A</h4>
+                            <p>Giám đốc Marketing, Công ty XYZ</p>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Project 2 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="assets/images/project2.jpg" alt="Dự án 2">
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <p>"Làm việc chuyên nghiệp, sáng tạo và luôn đúng hẹn. Tôi đặc biệt ấn tượng với khả năng hiểu ý tưởng và biến nó thành những hình ảnh đẹp mắt."</p>
                     </div>
-                    <div class="project-content">
-                        <h3>Tên Dự Án 2</h3>
-                        <p>Mô tả ngắn về dự án và vai trò của bạn trong đó.</p>
-                        <div class="project-tags">
-                            <span>React</span>
-                            <span>Node.js</span>
-                            <span>MongoDB</span>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="assets/images/client2.jpg" alt="Khách hàng 2">
                         </div>
-                        <div class="project-links">
-                            <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i></a>
-                            <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                        <div class="author-info">
+                            <h4>Trần Thị B</h4>
+                            <p>Nghệ sĩ độc lập</p>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Project 3 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="assets/images/project3.jpg" alt="Dự án 3">
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <p>"Một trong những editor tài năng nhất mà tôi từng làm việc cùng. Khả năng kể chuyện bằng hình ảnh thật sự xuất sắc."</p>
                     </div>
-                    <div class="project-content">
-                        <h3>Tên Dự Án 3</h3>
-                        <p>Mô tả ngắn về dự án và vai trò của bạn trong đó.</p>
-                        <div class="project-tags">
-                            <span>UI/UX</span>
-                            <span>Figma</span>
-                            <span>Prototype</span>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="assets/images/client3.jpg" alt="Khách hàng 3">
                         </div>
-                        <div class="project-links">
-                            <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i></a>
-                            <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                        <div class="author-info">
+                            <h4>Lê Văn C</h4>
+                            <p>Đạo diễn, Studio ABC</p>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="testimonial-controls">
+                <button class="prev-btn"><i class="fas fa-arrow-left"></i></button>
+                <div class="testimonial-dots"></div>
+                <button class="next-btn"><i class="fas fa-arrow-right"></i></button>
             </div>
         </div>
     </section>
@@ -177,8 +326,9 @@
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-header">
-                <h2>Liên hệ</h2>
-                <p>Bạn có dự án hoặc cơ hội hợp tác? Hãy kết nối với tôi!</p>
+                <span class="section-subtitle">Liên hệ</span>
+                <h2>Kết nối với tôi</h2>
+                <p>Bạn có dự án hoặc cơ hội hợp tác? Hãy liên hệ ngay!</p>
             </div>
             <div class="contact-content">
                 <div class="contact-info">
@@ -196,10 +346,11 @@
                         <i class="fas fa-share-alt"></i>
                         <h3>Mạng xã hội</h3>
                         <div class="social-links">
-                            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-                            <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-                            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
                             <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-behance"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-vimeo-v"></i></a>
                         </div>
                     </div>
                 </div>
@@ -214,7 +365,18 @@
                             <input type="email" id="email" name="email" required>
                         </div>
                         <div class="form-group">
-                            <label for="message">Lời nhắn</label>
+                            <label for="project">Loại dự án</label>
+                            <select id="project" name="project">
+                                <option value="">Chọn loại dự án</option>
+                                <option value="commercial">Video quảng cáo</option>
+                                <option value="music">Music video</option>
+                                <option value="documentary">Phim tài liệu</option>
+                                <option value="social">Video mạng xã hội</option>
+                                <option value="other">Khác</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Thông tin dự án</label>
                             <textarea id="message" name="message" rows="5" required></textarea>
                         </div>
                         <button type="submit" class="btn primary">Gửi tin nhắn</button>
@@ -228,13 +390,25 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <p>&copy; 2025 Tên Của Bạn. Đã đăng ký bản quyền.</p>
+                <div class="footer-logo">
+                    <h3>Tên Của Bạn</h3>
+                    <p>Video Editor & Motion Designer</p>
+                </div>
                 <div class="footer-links">
                     <a href="#home">Trang chủ</a>
                     <a href="#about">Giới thiệu</a>
-                    <a href="#projects">Dự án</a>
+                    <a href="#services">Dịch vụ</a>
+                    <a href="#projects">Tác phẩm</a>
                     <a href="#contact">Liên hệ</a>
                 </div>
+                <div class="footer-social">
+                    <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Tên Của Bạn. Đã đăng ký bản quyền.</p>
             </div>
         </div>
     </footer>
